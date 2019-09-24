@@ -23,6 +23,14 @@ class TasksController < ApplicationController
   end
 
   def update
+    @task = Task.find(params[:id])
+
+    if @task.update(task_params)
+      redirect_to root_path, notice: 'タスクが更新されました。'
+    else
+      flash.now[:danger] = 'タスクが更新できませんでした。'
+      render :edit
+    end
   end
 
   def destroy
