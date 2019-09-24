@@ -34,6 +34,11 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+
+    redirect_to root_path, notice: 'タスクは削除されました。'
+    redirect_to root_url
   end
 
   # Strong paramater
