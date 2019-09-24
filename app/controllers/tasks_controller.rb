@@ -8,6 +8,14 @@ class TasksController < ApplicationController
   end
 
   def create
+    @task = Task.new(task_params)
+
+    if @task.save
+      redirect_to root_path, notice: 'タスクが追加されました。'
+    else
+      flash[:danger] = 'タスクが追加できません。'
+      render :new
+    end
   end
 
   def edit
@@ -17,5 +25,10 @@ class TasksController < ApplicationController
   end
 
   def destroy
+  end
+
+  # Strong paramater
+  def task_params
+    params.require(:task).permit(:title, :content)
   end
 end
