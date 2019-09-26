@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params_to_CreateMethod)
+    @task = Task.new(task_params)
 
     if @task.save
       redirect_to root_path, notice: 'タスクが追加されました。'
@@ -44,7 +44,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
-  def task_params_to_CreateMethod
+  def task_params
     params.require(:task).permit(:title, :content)
   end
 end
