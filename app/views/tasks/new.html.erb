@@ -1,6 +1,8 @@
 <h1>タスク新規作成ページ</h1>
 
   <%= form_for(@task) do |f| %>
+   <%= render 'layouts/error_messages', model: f.object %>
+
    <%= f.label :title, 'タイトル' %>
    <%= f.text_field :title %>
 
