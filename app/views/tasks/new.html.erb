@@ -8,6 +8,9 @@
 
    <%= f.label :content, '内容' %>
    <%= f.text_field :content %>
+
+   <label class="control-label" for="">終了期限</label>
+   <%= f.date_select :deadline, {}, class: 'form-control' %>
    
    <%= f.submit '投稿' %>
   <% end %>
