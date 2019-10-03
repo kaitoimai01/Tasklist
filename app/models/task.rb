@@ -6,5 +6,5 @@ class Task < ApplicationRecord
     validates :deadline, presence: true
     validates :status, presence: true
 
-    enum status: %i[着手 未着手 完了]
+    enum status: %i[未着手 着手中 完了]
 end
