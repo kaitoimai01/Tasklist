@@ -1,6 +1,9 @@
 <%= form_for(@task) do |f| %>
    <%= render 'layouts/error_messages', model: f.object %>
 
+   <%= f.label :status, 'ステータス' %>
+   <%= f.select :status, Task.statuses.keys, {}, class: 'form-control' %>
+
    <%= f.label :title, 'タイトル' %>
    <%= f.text_field :title %>
 
