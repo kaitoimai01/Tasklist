@@ -2,7 +2,7 @@
    <%= render 'layouts/error_messages', model: f.object %>
 
    <%= f.label :status, 'ステータス' %>
-   <%= f.select :status, Task.statuses.keys, {}, class: 'form-control' %>
+   <%= f.select :status, { Waiting: 'Waiting', Started: 'Started', Completed: 'Completed' }, class: 'form-control' %>
 
    <%= f.label :title, 'タイトル' %>
    <%= f.text_field :title %>

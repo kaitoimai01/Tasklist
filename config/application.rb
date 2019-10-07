@@ -30,7 +30,9 @@ module App
     # Don't generate system test files.
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
-    config.time_zone = 'Asia/Tokyo'
+    config.i18n.available_locales = %i(ja en)
+    config.i18n.enforce_available_locales = true
+    config.time_zone = 'Tokyo'
     config.generators.system_tests = nil
   end
 end
