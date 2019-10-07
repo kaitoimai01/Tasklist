@@ -1,6 +1,9 @@
 <%= form_for(@task) do |f| %>
    <%= render 'layouts/error_messages', model: f.object %>
 
+   <%= f.label :priority, '優先順位' %>
+   <%= f.select :priority, { Low: 'Low', Medium: 'Medium', High: 'High' }, class: 'form-control' %>
+
    <%= f.label :status, 'ステータス' %>
    <%= f.select :status, { Waiting: 'Waiting', Started: 'Started', Completed: 'Completed' }, class: 'form-control' %>
 
