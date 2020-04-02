@@ -28,6 +28,11 @@ module App
     # the framework and any gems in your application.
 
     # Don't generate system test files.
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
+    config.i18n.available_locales = %i(ja en)
+    config.i18n.enforce_available_locales = true
+    config.time_zone = 'Tokyo'
     config.generators.system_tests = nil
   end
 end

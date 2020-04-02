@@ -34,9 +34,31 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Use i18n
+gem 'rails-i18n'
+
+# See Schema Info
+gem 'annotate'
+
+# Use search
+gem 'ransack'
+
+# Help ActiveRecord::Enum feature to work fine with I18n
+gem 'enum_help'
+
+# Use pagination
+gem 'kaminari'
+
+# Use bootstrap
+gem 'bootstrap'
+gem 'jquery-rails'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -50,6 +72,7 @@ end
 
 group :test do
   gem 'selenium-webdriver'
+  gem 'capybara'
 end
 
 

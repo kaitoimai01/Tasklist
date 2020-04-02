@@ -1,5 +1,26 @@
 <h1>id: <%= @task.id %>のタスク詳細ページ</h1>
-  <p>
-    <%= @task.title %>
-    <%= @task.content %>
-  </p>
+  
+  <table>
+   <tr>
+    <th>優先順位</th><td><%= @task.priority %></td>
+   </tr>
+
+   <tr>
+    <th>ステータス</th><td><%= @task.status %></td>
+   </tr>
+
+   <tr>
+    <th>タスク名</th><td><%= @task.title %></td>
+   </tr>
+
+   <tr>
+    <th>内容</th><td><%= @task.content %></td>
+   </tr>
+
+   <tr>
+    <th>終了期限</th><td><%= @task.deadline %></td>
+   </tr>
+  </table>
+
+<%= link_to 'このタスクを編集する', edit_task_path(@task) %>
+<%= link_to 'このタスクを削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか?' }, class: 'btn btn-danger btn-xs' %>
