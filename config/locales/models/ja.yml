@@ -1,8 +1,9 @@
-# エラーメッセージ日本語化
+# エラーメッセージが日本化されない
 ja:
   activerecord:
     models:
       task: タスク
+      user: ユーザー
     attributes:
       task:
         id: ID
@@ -12,6 +13,10 @@ ja:
         status: ステータス
         created_at: 登録日
         updated_at: 更新日
+      user:
+        name: 名前
+        email: メールアドレス
+        password_digest:　パスワード
     enums:
       task:
         status:
