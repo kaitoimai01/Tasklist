@@ -13,6 +13,7 @@ services:
     build:
       context: .
     volumes:
+    #TODO:volume 配下に bundleファイル追加。いちいちbuildしないようにしたい。
       - .:/var/src/app
     ports:
       - '80:3000'
