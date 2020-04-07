@@ -17,9 +17,8 @@ class TasksController < ApplicationController
     @task = current_user.tasks.new(task_params)
 
     if @task.save
-      #TODO:追加後はtasks#indexに遷移させたい
       flash[:success] = 'タスクを追加しました。'
-      redirect_to root_url
+      redirect_to tasks_path
     else
       flash[:danger] = 'タスクが追加できません。'
       render :new
@@ -32,8 +31,7 @@ class TasksController < ApplicationController
   def update
     if @task.update(task_params)
       flash[:success] = 'タスクが更新されました。'
-      #TODO:更新後はtasks#indexに遷移させたい
-      redirect_to root_url
+      redirect_to tasks_path
     else
       flash.now[:danger] = 'タスクが更新できませんでした。'
       render :edit
@@ -43,7 +41,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
 
-    redirect_to root_path, notice: 'タスクは削除されました。'
+    redirect_to tasks_path, notice: 'タスクは削除されました。'
   end
 
   # Strong paramater

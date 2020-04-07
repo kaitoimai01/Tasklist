@@ -8,8 +8,7 @@ class SessionsController < ApplicationController
 
     if login(email, password)
       flash[:success] = 'ログインに成功しました。'
-      #TODO：ログイン成功後、tasks#indexに遷移させたいができない。
-      redirect_to root_url
+      redirect_to tasks_path
     else
       flash.now[:danger] = 'ログインに失敗しました。'
       render 'new'
