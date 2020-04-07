@@ -1,4 +1,4 @@
-# エラーメッセージが日本化されない
+# TODO:エラーメッセージが日本化されない
 ja:
   activerecord:
     models:
