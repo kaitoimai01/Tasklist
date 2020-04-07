@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  # root 'tasks#index'
   root 'toppages#index'
+
+  # ログインユーザのタスク一覧
+  get 'task', to: 'tasks#index'
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
