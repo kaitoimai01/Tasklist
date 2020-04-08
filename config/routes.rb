@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'users/index'
+    get 'users/show'
+    get 'users/new'
+    get 'users/edit'
+    get 'users/destroy'
+  end
   # root 'tasks#index'
   root 'toppages#index'
 
