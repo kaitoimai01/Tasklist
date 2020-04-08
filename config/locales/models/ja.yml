@@ -16,7 +16,7 @@ ja:
       user:
         name: 名前
         email: メールアドレス
-        password_digest:　パスワード
+        password_digest: パスワード
     enums:
       task:
         status:
