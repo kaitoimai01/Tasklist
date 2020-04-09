@@ -17,9 +17,8 @@ class Admin::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      flash[:succeess] = 'ユーザーを登録しました。'
-      # admin/users/showに遷移
-      redirect_to admin_user_path(@user)
+      flash[:success] = 'ユーザーを登録しました。'
+      redirect_to login_path
     else
       flash.now[:danger] = 'ユーザーの登録に失敗しました。'
       render :new
@@ -43,7 +42,10 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    @uer = User.find(params[:id])
+    @user = User.find(params[:id])
+    @user.destroy
+
+    redirect_to admin_users_url, notice: 'ユーザー「 {@user.name} 」を削除しました。'
   end
 
   def user_params

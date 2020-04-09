@@ -3,3 +3,5 @@
 </div>
 
 <%= render 'form'%>
+
+<%= link_to '削除', [:admin, @user], method: :delete, data: { confirm: "こちらのユーザーを削除します。よろしいですか？"}, class: 'btn btn-danger' %>
