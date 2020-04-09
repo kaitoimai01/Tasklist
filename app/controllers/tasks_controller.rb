@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @q = Task.ransack(params[:q])
+    @q = current_user.tasks.ransack(params[:q])
     @tasks = @q.result(distinct: true)
   end
 
@@ -10,14 +10,15 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
+    @task = current_user.tasks.new
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.new(task_params)
 
     if @task.save
-      redirect_to root_path, notice: 'タスクが追加されました。'
+      flash[:success] = 'タスクを追加しました。'
+      redirect_to tasks_path
     else
       flash[:danger] = 'タスクが追加できません。'
       render :new
@@ -29,7 +30,8 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to root_path, notice: 'タスクが更新されました。'
+      flash[:success] = 'タスクが更新されました。'
+      redirect_to tasks_path
     else
       flash.now[:danger] = 'タスクが更新できませんでした。'
       render :edit
@@ -39,14 +41,14 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
 
-    redirect_to root_path, notice: 'タスクは削除されました。'
+    redirect_to tasks_path, notice: 'タスクは削除されました。'
   end
 
   # Strong paramater
   private
 
   def set_task
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 
   def task_params
