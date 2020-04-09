@@ -6,6 +6,7 @@
     <th>名前</th>
     <th>メールアドレス</th>
     <th>管理者権限</th>
+    <th>現在のタスク数</th>
     <th>登録日時</th>
     <th>更新日時</th>
    </tr>
@@ -17,6 +18,7 @@
     <td><%= user.name %></td>
     <td><%= user.email %></td>
     <td><%= user.admin %></td>
+    <td><%= user.tasks.size %></td>
     <td><%= user.created_at %></td>
     <td><%= user.updated_at %></td>
    </tr>
