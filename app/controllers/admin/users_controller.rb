@@ -48,6 +48,8 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_url, notice: 'ユーザーを削除しました。'
   end
 
+  private
+
   def user_params
     params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
   end
