@@ -19,8 +19,8 @@
     <td><%= user.email %></td>
     <td><%= user.admin %></td>
     <td><%= user.tasks.size %></td>
-    <td><%= user.created_at %></td>
-    <td><%= user.updated_at %></td>
+    <td><%= simple_time(user.created_at) %></td>
+    <td><%= simple_time(user.updated_at) %></td>
    </tr>
    <% end %>
   </tbody>

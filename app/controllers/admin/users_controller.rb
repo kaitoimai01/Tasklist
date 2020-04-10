@@ -43,7 +43,7 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
 
-    redirect_to admin_users_url, notice: 'ユーザー:「#{@user.name}」を削除しました。'
+    redirect_to admin_users_url, notice: 'ユーザーを削除しました。'
   end
 
   def user_params
