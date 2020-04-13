@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
   before_action :require_admin
 
   def index
-    @users = User.all.eager_load(:tasks)
+    @users = User.all.preload(:tasks)
   end
 
   def show
