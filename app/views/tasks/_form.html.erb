@@ -16,8 +16,10 @@
    <label class="control-label" for="">終了期限</label>
    <%= f.date_select :deadline, {}, class: 'form-control' %>
 
-   <%# <%= f.label :label, 'ラベル' %> %>
-   <%# <%= f.collection_check_boxes(:label_ids, @label, :id, :name) %> %>
+   <%= f.label :label_id, 'ラベル' %>
+   <%= f.collection_check_boxes :label_ids, Label.all, :id, :name, include_hidden: false do |b| %>
+    <%= b.label { b.check_box + b.text } %>
+   <% end %>
 
    <%= f.submit '追加', class: "btn btn-primary" %>
 <% end %>

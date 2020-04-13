@@ -11,14 +11,15 @@
     <th>進捗状況</th>
     <th>タイトル</th>
     <th>内容</th>
-    <th>締切日</th>
+    <th>終了期限</th>
    </tr>
   </thead>
   <tbody>
    <% @tasks.each do |task| %>
    <tr>
     <td><%= link_to task.id, task %></td>
-    <td><%= task.labels.each do |label| %>
+    <td>
+     <%= task.labels.each do |label| %>
      <%= label.name %>
      <% end %>
     </td>
