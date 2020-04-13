@@ -1,6 +1,8 @@
 class Admin::UsersController < ApplicationController
+  before_action :require_admin
+
   def index
-    @users = User.all.includes(:tasks)
+    @users = User.all.preload(:tasks)
   end
 
   def show
@@ -50,6 +52,8 @@ class Admin::UsersController < ApplicationController
       redirect_to admin_users_path
     end
   end
+
+  private
 
   def user_params
     params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
