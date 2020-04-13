@@ -6,6 +6,7 @@
   <thead>
    <tr>
     <th>項目</th>
+    <th>ラベル</th>
     <th>優先度</th>
     <th>進捗状況</th>
     <th>タイトル</th>
@@ -17,6 +18,10 @@
    <% @tasks.each do |task| %>
    <tr>
     <td><%= link_to task.id, task %></td>
+    <td><%= task.labels.each do |label| %>
+     <%= label.name %>
+     <% end %>
+    </td>
     <td><%= task.priority %></td>
     <td><%= task.status %></td>
     <td><%= task.title %></td>
