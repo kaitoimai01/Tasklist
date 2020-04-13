@@ -1,5 +1,9 @@
 class Task < ApplicationRecord
   belongs_to :user
+  has_many :labels, through: :task_labels
+  has_many :task_labels, dependent: :destroy
+
+
   default_scope -> { order(priority: :desc) }
 
   validates :title, presence: true, length: { maximum: 50 }
