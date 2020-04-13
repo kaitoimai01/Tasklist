@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  class Forbidden < ActionController::ActionControllerError
+  end
+
+  rescue_from Forbidden, with: :rescue403
+
   include SessionsHelper
 
   private
@@ -9,5 +14,10 @@ class ApplicationController < ActionController::Base
     unless logged_in?
       redirect_to login_url
     end
+  end
+
+  def rescue403(e)
+    @exception = e
+    render template: 'errors/forbidden', status: 403
   end
 end
