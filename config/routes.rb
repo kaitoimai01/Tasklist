@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   
   resources :tasks
+
+  get '*anything', to: "application#rescue404"
 end
