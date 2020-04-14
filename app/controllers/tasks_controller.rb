@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
   def index
     @q = current_user.tasks.ransack(params[:q])
-    @tasks = @q.result.includes(:labels, :task_labels).page(params[:page])
+    @tasks = @q.result.eager_load(:labels, :task_labels).page(params[:page])
   end
 
   def show
