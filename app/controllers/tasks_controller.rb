@@ -41,7 +41,8 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
 
-    redirect_to tasks_path, notice: 'タスクは削除されました。'
+    flash[:success] = 'タスクは削除されました。'
+    redirect_to tasks_path
   end
 
   # Strong paramater
