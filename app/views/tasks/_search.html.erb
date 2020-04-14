@@ -6,5 +6,8 @@
   <%= f.label :title_cont, "タイトル" %>
   <%= f.search_field :title_cont %>
 
+  <%= f.label :task_labels_id_eq, "ラベル" %>
+  <%= f.select :task_labels_label_id_eq, Label.order(:name).map{|m| [m.name, m.id]}, {include_blank: true}, {class: 'form-control'} %>
+
   <%= f.submit "検索" %>
 <% end %>

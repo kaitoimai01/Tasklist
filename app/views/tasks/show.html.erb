@@ -1,8 +1,16 @@
 <h1>項目<%= @task.id %>のタスク詳細ページ</h1>
-  
   <table>
    <tr>
-    <th>優先順位</th><td><%= @task.priority %></td>
+    <th>ラベル</th>
+    <td>
+     <% @task.labels.each do | label | %>
+     <%= label.name %>
+     <% end %>
+    </td>
+   </tr>
+
+   <tr>
+    <th>優先度</th><td><%= @task.priority %></td>
    </tr>
 
    <tr>
@@ -10,7 +18,7 @@
    </tr>
 
    <tr>
-    <th>タスク名</th><td><%= @task.title %></td>
+    <th>タイトル</th><td><%= @task.title %></td>
    </tr>
 
    <tr>

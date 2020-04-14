@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
   def index
     @q = current_user.tasks.ransack(params[:q])
-    @tasks = @q.result(distinct: true)
+    @tasks = @q.result.preload(:labels).page(params[:page])
   end
 
   def show
@@ -41,7 +41,8 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
 
-    redirect_to tasks_path, notice: 'タスクは削除されました。'
+    flash[:success] = 'タスクは削除されました。'
+    redirect_to tasks_path
   end
 
   # Strong paramater
@@ -52,6 +53,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :content, :deadline, :status, :priority)
+    params.require(:task).permit(:label, :title, :content, :deadline, :status, :priority, label_ids: [])
   end
 end
