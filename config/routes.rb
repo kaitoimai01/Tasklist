@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
-  root 'tasks#index'
+  # root 'admin/users#new'
+  root 'users#new'
+  resources :users
+
+  namespace :admin do
+    resources :users
+  end
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
   
   resources :tasks
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get '*anything', to: "application#rescue404"
 end

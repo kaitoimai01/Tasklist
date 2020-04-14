@@ -4,7 +4,7 @@
    <%= f.label :priority, '優先順位' %>
    <%= f.select :priority, { Low: 'Low', Medium: 'Medium', High: 'High' }, class: 'form-control' %>
 
-   <%= f.label :status, 'ステータス' %>
+   <%= f.label :status, '進捗状況' %>
    <%= f.select :status, { Waiting: 'Waiting', Started: 'Started', Completed: 'Completed' }, class: 'form-control' %>
 
    <%= f.label :title, 'タイトル' %>
@@ -15,6 +15,11 @@
 
    <label class="control-label" for="">終了期限</label>
    <%= f.date_select :deadline, {}, class: 'form-control' %>
-   
-   <%= f.submit '投稿' %>
+
+   <%= f.label :label_id, 'ラベル' %>
+   <%= f.collection_check_boxes :label_ids, Label.all, :id, :name, include_hidden: false do |b| %>
+    <%= b.label { b.check_box + b.text } %>
+   <% end %>
+
+   <%= f.submit '追加', class: "btn btn-primary" %>
 <% end %>

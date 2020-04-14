@@ -1,10 +1,13 @@
 <%= search_form_for @q do |f| %>
 
-  <%= f.label :status_eq, "ステータス" %>
+  <%= f.label :status_eq, "進捗状況" %>
   <%= f.select :status_eq, Task.statuses.map {|k, v| [Task.statuses_i18n[k], v]}, class: 'form-control' %>
 
   <%= f.label :title_cont, "タイトル" %>
   <%= f.search_field :title_cont %>
+
+  <%= f.label :task_labels_id_eq, "ラベル" %>
+  <%= f.select :task_labels_label_id_eq, Label.order(:name).map{|m| [m.name, m.id]}, {include_blank: true}, {class: 'form-control'} %>
 
   <%= f.submit "検索" %>
 <% end %>
