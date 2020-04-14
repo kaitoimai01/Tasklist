@@ -19,7 +19,7 @@
    <tr>
     <td><%= link_to task.id, task %></td>
     <td>
-     <%= task.labels.each do |label| %>
+     <% task.labels.each do |label| %>
      <%= label.name %>
      <% end %>
     </td>

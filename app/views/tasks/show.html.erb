@@ -3,7 +3,7 @@
    <tr>
     <th>ラベル</th>
     <td>
-     <%= @task.labels.each do | label | %>
+     <% @task.labels.each do | label | %>
      <%= label.name %>
      <% end %>
     </td>
