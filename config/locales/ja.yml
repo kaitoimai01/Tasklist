@@ -13,7 +13,8 @@ ja:
         name: 名前
         email: メールアドレス
         admin: 管理者権限
-        password_digest: パスワード
+        password: パスワード
+        password_confirmation: パスワードの確認
         created_at: 登録日時
         updated_at: 更新日時
     enums:
